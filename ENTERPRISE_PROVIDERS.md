@@ -6,7 +6,7 @@
 
 The following section lists the companies that provides Support, Consulting Services and Products around Fluentd for the Enterprise needs.
 
-- [Treasure Data](#provider_treasure_data}
+- [Treasure Data](#provider_treasure_data)
 
 ### Treasure Data {provider_treasure_data}
 
