@@ -6,9 +6,9 @@
 
 The following section lists the companies that provides Support, Consulting Services and Products around Fluentd for the Enterprise needs.
 
-- [Treasure Data](#provider_treasure_data)
+- [Treasure Data](https://fluentd.treasuredata.com)
 
-### Treasure Data {provider_treasure_data}
+### Treasure Data
 
 [Treasure Data](https://www.treasuredata.com) is one of the principal sponsors of Fluentd, it provides technical support, consulting services and [Fluentd Enterprise](https://fluentd.treasuredata.com/), a Fluentd-on steroids with enhanced security and connectors for enterprise backends such as [Apache Kafka](http://kafka.apache.org) and [Splunk](http://www.splunk.com) within others.
 
