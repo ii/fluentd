@@ -14,7 +14,7 @@ stages:
   - compile
 
 
-compil fluentd:
+Build fluentd:
   stage: compile
   script:
     - bundle exec rake build
