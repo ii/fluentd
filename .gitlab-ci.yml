@@ -33,7 +33,6 @@ Build fluentd:
 
 Container:
   stage: Package
-  image: golang:1.8.1
   script:
     - cat release.env
     - source release.env
