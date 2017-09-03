@@ -9,6 +9,7 @@ before_script:
   - ruby -v                                   # Print out ruby version for debugging
   - gem install bundler  --no-ri --no-rdoc    # Bundler is not installed with the image
   - bundle install -j $(nproc) --path vendor  # Install dependencies into ./vendor/ruby
+  - export BASE_URL=${BASE_URL:-$(echo $CI_PROJECT_URL |  cut -d'/' -f1-3)}
 
 stages:
   - Build
@@ -30,11 +31,13 @@ Build fluentd:
       - "*gem"
       - release.env
 
-container:
+Container:
   stage: Package
   image: golang:1.8.1
   script:
     - cat release.env
+    - source release.env
+    - echo $FLUENTD_GEM
     - >
       PROJECT_PIPELINE=$(curl -X POST -F token=$FLUENTD_DOCKER_CI_JOB_TOKEN -F ref=master -F "variables[FLUENTD_GEM]=$FLUENTD_GEM" https://gitlab.cncf.ci/api/v4/projects/35/trigger/pipeline | jq '.id')
 
