@@ -34,6 +34,7 @@ Build fluentd:
 Container:
   stage: Package
   script:
+    - apt update && apt -y install jq
     - cat release.env
     - source release.env
     - echo $FLUENTD_GEM
