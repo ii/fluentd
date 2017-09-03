@@ -20,6 +20,8 @@ Build fluentd:
   stage: Build
   script:
     - bundle exec rake build
+    - ls -la .pkg/
+    - sleep 10000
     - mv pkg/*gem .
     - GEMFILE_NAME=$(ls *gem)
     - echo FLUENTD_GEM=$CI_PROJECT_URL/builds/$CI_JOB_ID/artifacts/file/$GEMFILE_NAME >> release.env
