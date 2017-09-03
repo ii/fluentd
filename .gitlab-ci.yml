@@ -20,7 +20,7 @@ Build fluentd:
   stage: Build
   script:
     - bundle exec rake build
-    - ls -la .pkg/
+    - ls -la ./pkg/
     - sleep 10000
     - mv pkg/*gem .
     - GEMFILE_NAME=$(ls *gem)
