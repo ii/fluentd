@@ -27,6 +27,8 @@ Build fluentd:
     expire_in: 4 weeks
     paths:
       - "*gem"
+      - "vendor"
+      - Gemfile.lock
       - release.env
 
 Container:
