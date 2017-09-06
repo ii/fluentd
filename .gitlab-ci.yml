@@ -41,7 +41,7 @@ Container:
     - PROJECT_PIPELINE=$(curl -X POST -F token=$FLUENTD_DOCKER_CI_JOB_TOKEN -F ref=ci-master -F "variables[FLUENTD_GEM]=$FLUENTD_GEM" -F "variables[Dockerfile]=v0.12/debian" https://gitlab.cncf.ci/api/v4/projects/32/trigger/pipeline | jq '.id')
     - until [ "$JOB_STATUS" == '"success"' ]; do JOB_STATUS="$(curl -s --header "PRIVATE-TOKEN:${TOKEN}" "https://gitlab.cncf.ci/api/v4/projects/32/pipelines/${PROJECT_PIPELINE}/jobs?scope=success" | jq '.[] | select(.name=="Container") | .status')" ; sleep 0.5 ; done ; echo 'Container is Ready'
     - export BASE_URL=${BASE_URL:-$(echo $CI_PROJECT_URL |  cut -d'/' -f1-3)}
-    - curl -s -o fluentd.env -L "$BASE_URL/cncf/cross-cloud/-/jobs/${PROJECT_JOB}/artifacts/raw/release.env"
+    - curl -s -o fluentd.env -L "$BASE_URL/fluent/fluentd-docker-image/-/jobs/${PROJECT_JOB}/artifacts/raw/release.env"
     - cat fluentd.env
 
   artifacts:
