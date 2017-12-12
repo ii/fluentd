@@ -55,6 +55,7 @@ class UdpInputTest < Test::Unit::TestCase
     assert_equal PORT, d.instance.port
     assert_equal bind, d.instance.bind
     assert_equal 4096, d.instance.message_length_limit
+    assert_equal nil, d.instance.recv_buffer
   end
 
   data(
@@ -170,6 +171,17 @@ class UdpInputTest < Test::Unit::TestCase
       assert_equal "udp", d.events[i][0]
       assert d.events[i][1].is_a?(Fluent::EventTime)
       assert_equal expected_record, d.events[i][2]
+    end
+  end
+
+  test 'recv_buffer' do
+    d = create_driver(BASE_CONFIG + %!
+      format none
+      recv_buffer 1001
+    !)
+    d.run do
+      sock = d.instance.instance_variable_get(:@_servers)[0].server.instance_variable_get(:@sock)
+      assert_equal(1001, sock.getsockopt(Socket::SOL_SOCKET, Socket::SO_RCVBUF).int)
     end
   end
 end
