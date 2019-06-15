@@ -2,6 +2,8 @@ require_relative '../helper'
 require 'fluent/plugin/file_util'
 require 'fileutils'
 
+p ENV
+
 class FileUtilTest < Test::Unit::TestCase
   def setup
     FileUtils.rm_rf(TEST_DIR)

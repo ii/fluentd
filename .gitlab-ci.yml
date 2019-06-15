@@ -79,7 +79,7 @@ rubyhead:
   allow_failure: true
   extends: .test-template
   script:
-    - bundle exec rake test
+    - bundle exec rake test TEST=./test/plugin/test_file_util.rb
   cache:
     key: "$CI_COMMIT_REF_SLUG 2-6-3"
     paths:
