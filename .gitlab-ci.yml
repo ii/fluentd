@@ -73,54 +73,6 @@ rubyhead:
     paths:
       - ./*
 
-2-1-10-test:
-  image: "ruby:2.1.10"
-  stage: tests
-  allow_failure: true
-  extends: .test-template
-  script:
-    - bundle exec rake test
-  cache:
-    key: "$CI_COMMIT_REF_SLUG 2-1-10"
-    paths:
-      - ./*
-
-2-2-10-test:
-  image: "ruby:2.2.10"
-  stage: tests
-  allow_failure: true
-  extends: .test-template
-  script:
-    - bundle exec rake test
-  cache:
-    key: "$CI_COMMIT_REF_SLUG 2-2-10"
-    paths:
-      - ./*
-
-2-4-5-test:
-  image: "ruby:2.4.5"
-  stage: tests
-  allow_failure: true
-  extends: .test-template
-  script:
-    - bundle exec rake test
-  cache:
-    key: "$CI_COMMIT_REF_SLUG 2-4-5"
-    paths:
-      - ./*
-
-2-5-5-test:
-  image: "ruby:2.5.5"
-  stage: tests
-  allow_failure: true
-  extends: .test-template
-  script:
-    - bundle exec rake test
-  cache:
-    key: "$CI_COMMIT_REF_SLUG 2-5-5"
-    paths:
-      - ./*
-
 2-6-3-test:
   image: "ruby:2.6.3"
   stage: tests
@@ -133,15 +85,3 @@ rubyhead:
     paths:
       - ./*
 
-rubyhead-test:
-  image: "ruby:latest"
-  stage: tests
-  allow_failure: true
-  extends: .test-template
-  script:
-    - bundle exec rake test
-  cache:
-    key: "$CI_COMMIT_REF_SLUG latest"
-    paths:
-      - ./*
-    
