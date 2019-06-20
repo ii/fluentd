@@ -36,6 +36,13 @@ class EventTimeTest < Test::Unit::TestCase
     assert_equal('100', "#{time}")
   end
 
+  test '#to_time' do
+    time = Fluent::EventTime.new(@now.to_i, @now.nsec).to_time
+    assert_instance_of(Time, time)
+    assert_equal(@now.to_i, time.to_i)
+    assert_equal(@now.nsec, time.nsec)
+  end
+
   test '#to_json' do
     time = Fluent::EventTime.new(100)
     assert_equal('100', time.to_json)
